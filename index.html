@@ -26,6 +26,24 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
+        var redIcon = L.icon({
+            iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-red.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+        var blueIcon = L.icon({
+            iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-blue.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
         var venues_red = {
             "六本木ヒルズクラブ": [35.660243, 139.729502],
             "ANA インターコンチネンタルホテル 東京ベイ": [35.654621, 139.757836]
@@ -39,15 +57,11 @@
         };
 
         for (var venue in venues_red) {
-            L.marker(venues_red[venue], {icon: L.icon({iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-red.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png'})})
-                .addTo(map)
-                .bindPopup(venue);
+            L.marker(venues_red[venue], {icon: redIcon}).addTo(map).bindPopup(venue);
         }
 
         for (var venue in venues_blue) {
-            L.marker(venues_blue[venue], {icon: L.icon({iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-blue.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png'})})
-                .addTo(map)
-                .bindPopup(venue);
+            L.marker(venues_blue[venue], {icon: blueIcon}).addTo(map).bindPopup(venue);
         }
     </script>
 </body>
